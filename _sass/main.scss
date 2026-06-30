@@ -1,0 +1,286 @@
+html{
+    overscroll-behavior:none;
+}
+
+
+body{
+    font-size:14px;
+    font-family:'Courier New', courier, monospace;
+    font-weight:normal;
+    margin:0;
+    display:grid;
+    place-items:center;
+}
+
+.container{
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    min-height:100vh;
+    max-width:800px;
+}
+
+::selection{
+    background-color:#0062ff;
+    color:white;
+}
+
+a{
+    color:#0062ff;
+}
+
+a:hover{
+    background-color:#0062ff;
+    color:white;
+}
+
+// ————————————HEADER————————————
+
+.site-header{
+    position:sticky;
+    top:0;
+    height:100vh;
+    width:280px;
+    flex-shrink:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.site-header .wrapper{
+    display:flex;
+    flex-direction:column;
+}
+
+.page-right{
+    flex:1;
+    min-width:0;
+    padding:20px;
+}
+
+.site-title{
+    font-weight:normal;
+    font-size:24px;
+    margin:0;
+}
+
+.site-title a{
+    text-decoration:none;
+    color:#0062ff;
+    text-decoration:underline;
+    text-decoration-style:wavy;
+    text-decoration-thickness:1px;
+    text-underline-offset:2px;
+}
+
+.site-nav{
+    margin-top:8px;
+}
+
+.site-nav a{
+    text-decoration:none;
+    font-style:italic;
+}
+
+.site-footer{
+    border-top:1px solid black;
+    padding-top:20px;
+    margin-top:40px;
+    color:#666;
+}
+
+.post-meta{
+    color:#666;
+    font-size:14px;
+    margin:0;
+}
+
+.spacer{
+    height:20px;
+}
+
+// ————————————
+
+.mix-post-wrapper{
+    margin-bottom:10px;
+}
+
+.mix-title{
+    font-weight:normal;
+    font-size:24px;
+    margin:0;
+    padding-top:20px;
+    border-top:1px black solid;
+}
+
+.mix-title a{
+    color:#0062ff;
+    text-decoration:none;
+}
+
+.mix-title a:hover{
+    background-color:#0062ff;
+    color:white;
+}
+
+.mix-description{
+    color:#5697ff;
+    margin:20px 0;
+}
+
+// ————————————TAG————————————
+.mix-title[data-type="live"]::before{
+    content:"LIVE ☆ ";
+}
+
+.mix-title[data-type="studio"]::before{
+    content:"(S) ";
+}
+
+// ————————————POST————————————
+
+.mix-header{
+    margin-bottom:16px;
+}
+
+.mix-header .mix-title{
+    font-size:20px;
+    margin-top:4px;
+}
+
+// ————————————AUDIO PLAYER————————————
+
+.mix-player{
+    display:none;
+}
+
+.player{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:16px 0;
+}
+
+.player-play{
+    background:none;
+    border:1px solid #0062ff;
+    color:#0062ff;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:12px;
+    padding:2px 6px;
+    flex-shrink:0;
+}
+
+.player-play:hover{
+    background-color:#0062ff;
+    color:white;
+}
+
+.player-time{
+    font-size:10px;
+    white-space:nowrap;
+    min-width:2.5em;
+}
+
+.player-seek{
+    flex:1;
+    -webkit-appearance:none;
+    appearance:none;
+    height:2px;
+    background:linear-gradient(to right, #0062ff var(--progress, 0%), #ddd var(--progress, 0%));
+    cursor:pointer;
+    outline:none;
+    border:none;
+}
+
+.player-seek::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:10px;
+    height:10px;
+    background:#0062ff;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.player-seek::-moz-range-thumb{
+    width:10px;
+    height:10px;
+    background:#0062ff;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+}
+
+// ————————————TRACKLIST————————————
+
+.tracklist{
+    border-collapse:collapse;
+    width:100%;
+    margin:0;
+}
+
+.tracklist-item td{
+    padding:2px 0;
+    vertical-align:center;
+    border-bottom:0.5px black dashed;
+}
+
+.tracklist-time{
+    color:#0062ff;
+    cursor:pointer;
+    white-space:nowrap;
+    font-size:10px;
+    font-weight:bold;
+    padding-right:12px;
+    display:block;
+}
+
+.tracklist-time::before{
+    content:"▶ ";
+    padding-left:2px;
+    visibility:hidden;
+}
+
+.tracklist-time:hover{
+    background-color:#0062ff;
+    color:white;
+}
+
+.tracklist-time:hover::before{
+    visibility:visible;
+}
+
+// ————————————BREAKPOINT————————————
+
+@media screen and (max-width:500px), screen and (orientation:portrait){
+    body{
+        margin:0;
+        overflow-x:hidden;
+    }
+    .container{
+        flex-direction:column;
+        padding:0 20px;
+        box-sizing:border-box;
+        width:100%;
+        max-width:500px;
+    }
+    .site-header{
+        position:relative;
+        width:100%;
+        height:auto;
+        padding:20px 0 0 0;
+        margin-bottom:0;
+        overflow:visible;
+    }
+    .page-right{
+        padding:20px 0;
+    }
+    .site-title{
+        font-size:18px;
+    }
+    .mix-title{
+        font-size:18px;
+    }
+}

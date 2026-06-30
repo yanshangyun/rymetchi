@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class="home">
+    {% for post in site.posts %}
+    {% assign player_id = "player-" | append: forloop.index %}
+    <article class="mix-post-wrapper">
+        <p class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: "%Y⁄%m⁄%d" }}
+            </time>
+        </p>
+        <h2 class="mix-title"{% if post.type %} data-type="{{ post.type }}"{% endif %}>{{ post.title | escape }}</h2>
+        {% if post.description %}
+        <p class="mix-description">{{ post.description }}</p>
+        {% endif %}
+
+        {% include player.html id=player_id src=post.mp3_url %}
+
+        {% if post.tracklist %}
+        <table class="tracklist" data-player="{{ player_id }}">
+            {% for track in post.tracklist %}
+            <tr class="tracklist-item">
+                <td><span class="tracklist-time" data-time="{{ track.time }}">{{ track.time }}</span></td>
+                <td>{{ track.title }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </article>
+    {% endfor %}
+</div>

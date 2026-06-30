@@ -1,0 +1,16 @@
+title: DJ ★ RYMETCHI
+description: mixes
+baseurl: ""
+url: "https://rymetchi.club"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+incremental: false
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

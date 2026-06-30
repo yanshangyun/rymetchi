@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<article class="mix">
+    <a href="/">← back</a>
+    <div class="spacer"></div>
+    <header class="mix-header">
+        <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: "%Y年%m月%d日" }}
+            </time>
+        </p>
+        <h1 class="mix-title"{% if page.type %} data-type="{{ page.type }}"{% endif %}>{{ page.title | escape }}</h1>
+        {% if page.description %}
+        <p class="mix-description">{{ page.description }}</p>
+        {% endif %}
+    </header>
+
+    {% include player.html id="mix-player" src=page.mp3_url %}
+
+    {% if page.tracklist %}
+    <table class="tracklist" data-player="mix-player">
+        {% for track in page.tracklist %}
+        <tr class="tracklist-item">
+            <td><span class="tracklist-time" data-time="{{ track.time }}">{{ track.time }}</span></td>
+            <td>{{ track.title }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {{ content }}
+</article>

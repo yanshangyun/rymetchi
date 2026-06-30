@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="{{ "/assets/favicon.ico" | relative_url }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+    <script defer src="{{ "/assets/js/player.js" | relative_url }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+            <div class="wrapper">
+                {% include header-art.html %}
+                <p class="site-title">{{ site.title }}</p>
+                <nav class="site-nav">
+                    <a href="/feed.xml">RSS</a>
+                    <a href="https://instagram.com/rymetchi">[ INSTAGRAM ]</a>
+                </nav>
+                <p>
+                    Welcome! This is my site where I archive my mixes.
+                </p>
+            </div>
+        </header>
+        <div class="page-right">
+            <main class="page-content">
+                {{ content }}
+            </main>
+            <footer class="site-footer">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
