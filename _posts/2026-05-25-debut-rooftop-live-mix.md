@@ -2,8 +2,8 @@
 layout: mix
 title: Rooftop Mix @ GRAND GOODBYE
 date: 2026-05-25
-description: my debut dj mix at our apartment goodbye party on the rooftop! featuring artists like house rulez, cafe 432, yuma, dj kawasaki, and macross 82-99. soulful house grooves shift into funkier, upbeat disco and finally peak with deep electronic house as the sun sets ☀
-type: live
+description: my debut dj mix at our apartment goodbye party on the rooftop! featuring artists house rulez, cafe 432, yuma, dj kawasaki, and macross 82-99. soulful house grooves shift into funkier, deep house as the sun sets
+type: set
 mp3_url: https://archive.org/download/rymetchi-260525/rymetchi-260525.mp3
 tracklist:
   - time: "0:00:00"

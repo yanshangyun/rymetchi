@@ -4,7 +4,7 @@ layout: default
 <div class="home">
     {% for post in site.posts %}
     {% assign player_id = "player-" | append: forloop.index %}
-    <article class="mix-post-wrapper">
+    <article class="mix-post-wrapper" style="--accent:{{ post.color | default: '#0062ff' }}">
         <p class="post-meta">
             <time datetime="{{ post.date | date_to_xmlschema }}">
                 {{ post.date | date: "%Y⁄%m⁄%d" }}

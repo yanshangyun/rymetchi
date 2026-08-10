@@ -2,14 +2,23 @@ html{
     overscroll-behavior:none;
 }
 
+@font-face{
+    font-family:"BIZ UDGothic";
+    src:url("/assets/font/BIZUDGothic-Regular.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
 
 body{
     font-size:14px;
-    font-family:'Courier New', courier, monospace;
+    font-family:"Courier New", courier, monospace;
     font-weight:normal;
     margin:0;
     display:grid;
     place-items:center;
+    line-height:1.1;
+    // text-shadow:0 0px 5px color-mix(in srgb, currentColor 30%, transparent);
 }
 
 .container{
@@ -104,6 +113,7 @@ a:hover{
 
 .mix-post-wrapper{
     margin-bottom:10px;
+    padding-bottom:40px;
 }
 
 .mix-title{
@@ -115,27 +125,35 @@ a:hover{
 }
 
 .mix-title a{
-    color:#0062ff;
+    color:var(--accent, #0062ff);
     text-decoration:none;
 }
 
 .mix-title a:hover{
-    background-color:#0062ff;
+    background-color:var(--accent, #0062ff);
     color:white;
 }
 
+audio{
+    display:block;
+    padding-bottom:12px;
+    width:100%;
+}
+
 .mix-description{
-    color:#5697ff;
+    color:color-mix(in srgb, var(--accent, #0062ff) 80%, transparent);
     margin:20px 0;
 }
 
 // ————————————TAG————————————
-.mix-title[data-type="live"]::before{
-    content:"LIVE ☆ ";
+.mix-title[data-type="set"]::before{
+    content:"★ ";
+    color:var(--accent, #0062ff);
 }
 
-.mix-title[data-type="studio"]::before{
-    content:"(S) ";
+.mix-title[data-type="mix"]::before{
+    content:"꩜ ";
+    color:var(--accent, #0062ff);
 }
 
 // ————————————POST————————————
@@ -147,70 +165,6 @@ a:hover{
 .mix-header .mix-title{
     font-size:20px;
     margin-top:4px;
-}
-
-// ————————————AUDIO PLAYER————————————
-
-.mix-player{
-    display:none;
-}
-
-.player{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin:16px 0;
-}
-
-.player-play{
-    background:none;
-    border:1px solid #0062ff;
-    color:#0062ff;
-    cursor:pointer;
-    font-family:inherit;
-    font-size:12px;
-    padding:2px 6px;
-    flex-shrink:0;
-}
-
-.player-play:hover{
-    background-color:#0062ff;
-    color:white;
-}
-
-.player-time{
-    font-size:10px;
-    white-space:nowrap;
-    min-width:2.5em;
-}
-
-.player-seek{
-    flex:1;
-    -webkit-appearance:none;
-    appearance:none;
-    height:2px;
-    background:linear-gradient(to right, #0062ff var(--progress, 0%), #ddd var(--progress, 0%));
-    cursor:pointer;
-    outline:none;
-    border:none;
-}
-
-.player-seek::-webkit-slider-thumb{
-    -webkit-appearance:none;
-    width:10px;
-    height:10px;
-    background:#0062ff;
-    border-radius:50%;
-    cursor:pointer;
-}
-
-.player-seek::-moz-range-thumb{
-    width:10px;
-    height:10px;
-    background:#0062ff;
-    border-radius:50%;
-    border:none;
-    cursor:pointer;
 }
 
 // ————————————TRACKLIST————————————
@@ -228,7 +182,7 @@ a:hover{
 }
 
 .tracklist-time{
-    color:#0062ff;
+    color:var(--accent, #0062ff);
     cursor:pointer;
     white-space:nowrap;
     font-size:10px;
@@ -244,7 +198,7 @@ a:hover{
 }
 
 .tracklist-time:hover{
-    background-color:#0062ff;
+    background-color:var(--accent, #0062ff);
     color:white;
 }
 
